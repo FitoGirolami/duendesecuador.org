@@ -10,44 +10,104 @@
   <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
   <link rel="canonical" href="https://duendesecuador.org/" />
 
+  <!-- SEO extra (branding + intención) -->
+  <meta name="keywords" content="Duendes Ecuador, duendes en Ecuador, imaginario del duende, folklore Ecuador, relatos de duendes, tradición oral, arte contemporáneo, Baños de Agua Santa, Caso Baños, duendismo cultural, La Casa del Duende, comprar duendes artesanales Ecuador, duendes hechos a mano, La Aldea Mágica, archivo cultural, observatorio cultural, fuentes DOI" />
+  <meta name="author" content="Duendes Ecuador" />
+  <meta name="theme-color" content="#1d4ed8" />
+
   <!-- Open Graph / Social -->
   <meta property="og:title" content="Duendes Ecuador — Archivo cultural y observatorio" />
   <meta property="og:description" content="Archivo cultural sobre duendes en Ecuador: tradición, relatos, arte contemporáneo y fenómeno actual, con enfoque accesible y documentado." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://duendesecuador.org/" />
-  <meta name="twitter:card" content="summary" />
+  <meta property="og:image" content="https://duendesecuador.org/assets/duendes-ecuador-cover.jpg" />
+  <meta property="og:image:alt" content="Duendes Ecuador — Archivo cultural y observatorio del imaginario del duende en Ecuador" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Duendes Ecuador — Archivo cultural y observatorio" />
+  <meta name="twitter:description" content="Tradición, relatos, arte contemporáneo y fenómeno actual con enfoque accesible y documentado." />
+  <meta name="twitter:image" content="https://duendesecuador.org/assets/duendes-ecuador-cover.jpg" />
 
   <!-- Datos estructurados (Schema.org) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Duendes Ecuador",
-    "url": "https://duendesecuador.org/",
-    "description": "Archivo cultural y observatorio del imaginario del duende en Ecuador: tradición, relatos, arte contemporáneo y fenómeno actual, con enfoque periodístico y documentado.",
-    "inLanguage": "es",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Duendes Ecuador",
-      "url": "https://duendesecuador.org/"
-    }
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://duendesecuador.org/#org",
+        "name": "Duendes Ecuador",
+        "url": "https://duendesecuador.org/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://duendesecuador.org/assets/duendes-ecuador-logo.png"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://duendesecuador.org/#website",
+        "name": "Duendes Ecuador",
+        "url": "https://duendesecuador.org/",
+        "inLanguage": "es",
+        "publisher": { "@id": "https://duendesecuador.org/#org" },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://duendesecuador.org/?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://duendesecuador.org/#home",
+        "url": "https://duendesecuador.org/",
+        "name": "Duendes Ecuador — Archivo cultural y observatorio",
+        "isPartOf": { "@id": "https://duendesecuador.org/#website" },
+        "about": [
+          { "@type": "Thing", "name": "Duendes (imaginario cultural)" },
+          { "@type": "Thing", "name": "Tradición oral" },
+          { "@type": "Thing", "name": "Arte contemporáneo" },
+          { "@type": "Thing", "name": "Turismo y símbolos" }
+        ],
+        "mentions": [
+          {
+            "@type": "Place",
+            "name": "Baños de Agua Santa",
+            "address": { "@type": "PostalAddress", "addressCountry": "EC" }
+          }
+        ]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://duendesecuador.org/#recomendacion-compra",
+        "url": "https://duendesecuador.org/#recomendacion-compra",
+        "name": "Recomendación para adquirir duendes artesanales en Ecuador",
+        "isPartOf": { "@id": "https://duendesecuador.org/#website" },
+        "about": [
+          { "@type": "Thing", "name": "Duendes artesanales hechos a mano" },
+          { "@type": "Thing", "name": "Obra autoral contemporánea" }
+        ],
+        "sameAs": [
+          "https://lacasadelduende.art/comprar-duendes-en-ecuador.html",
+          "https://aldeamagica.art/"
+        ]
+      }
+    ]
   }
   </script>
 
   <style>
-    /* Paleta clara, sobria, tipo universidad/archivo (más accesible que el tema oscuro anterior) */
+    /* Paleta clara, sobria, tipo universidad/archivo */
     :root{
       --bg:#f6f8fc;
       --paper:#ffffff;
       --card:#ffffff;
-      --text:#0f172a;     /* slate-900 */
-      --muted:#334155;    /* slate-700 */
-      --soft:#64748b;     /* slate-500 */
+      --text:#0f172a;
+      --muted:#334155;
+      --soft:#64748b;
       --line:rgba(15,23,42,.12);
-      --accent:#1d4ed8;   /* blue-700 */
-      --accent2:#2563eb;  /* blue-600 */
-      --warn:#b45309;     /* amber-700 */
-      --good:#047857;     /* emerald-700 */
+      --accent:#1d4ed8;
+      --accent2:#2563eb;
+      --warn:#b45309;
+      --good:#047857;
       --max: 1020px;
       --radius: 16px;
       --shadow: 0 14px 40px rgba(2,6,23,.08);
@@ -282,6 +342,40 @@
       text-decoration:none;
     }
 
+    /* CTA recomendado (branding: “La Casa del Duende” como referente de compra) */
+    .cta{
+      border: 1px solid rgba(29,78,216,.18);
+      background: linear-gradient(180deg, rgba(37,99,235,.06), rgba(255,255,255,.86));
+      border-radius: 16px;
+      padding: 12px 14px;
+      margin-top: 12px;
+    }
+    .cta h4{margin:0 0 6px; font-size: 14px; letter-spacing:.15px; color: var(--text)}
+    .cta p{margin:0; color: var(--muted); font-size: 13.5px}
+    .cta .row{display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-top: 10px}
+    .cta .primary{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(29,78,216,.28);
+      background: rgba(29,78,216,.10);
+      color: #0b1b45;
+      font-weight: 800;
+      text-decoration:none;
+    }
+    .cta .primary:hover{background: rgba(29,78,216,.14); text-decoration:none}
+    .cta .secondary{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(15,23,42,.12);
+      background: rgba(255,255,255,.86);
+      color: var(--muted);
+      font-weight: 700;
+      text-decoration:none;
+    }
+    .cta .secondary:hover{background: rgba(37,99,235,.08); color: var(--text); text-decoration:none}
+
     footer{
       border-top: 1px solid var(--line);
       color: var(--muted);
@@ -322,6 +416,7 @@
         <a href="#faq">Preguntas frecuentes</a>
         <a href="#origen-banos">Origen en Baños</a>
         <a href="#metodologia">Metodología</a>
+        <a href="#recomendacion-compra">Recomendación de compra</a>
       </nav>
     </div>
   </div>
@@ -334,7 +429,7 @@
       <strong>Duendes Ecuador</strong> reúne definiciones, preguntas frecuentes y criterios de análisis para abordar el “duende” como
       <strong>figura cultural</strong>. Aquí se observa cómo circula en relatos tradicionales y cómo reaparece hoy en Ecuador
       a través del turismo, los medios y las redes sociales. El enfoque es <strong>periodístico y cultural</strong>:
-      describe procesos, contrasta fuentes y evita el sensacionalismo.
+      describe procesos, contrasta fuentes y promueve trazabilidad.
     </p>
 
     <div class="chips" aria-label="Etiquetas temáticas">
@@ -349,15 +444,15 @@
     <div class="grid" role="region" aria-label="Resumen inicial">
       <div class="card">
         <div class="pad">
-          <h3>Qué es (y qué no es) este archivo</h3>
+          <h3>Qué aporta este archivo</h3>
           <p>
             Este sitio funciona como un <em>archivo cultural</em> y un <em>observatorio</em>. Su objetivo es ordenar conceptos y
-            contrastar afirmaciones, especialmente cuando el duende aparece mezclado con supersticiones, marketing o relatos sin sustento.
+            contrastar afirmaciones, ubicando cada contenido en su nivel: tradición oral, registro documental o narrativa contemporánea.
           </p>
           <div class="note">
             <p style="margin:0">
-              Aquí se evita ridiculizar creencias. Cuando una afirmación no tiene respaldo trazable, se presenta como
-              <strong>relato</strong> o <strong>narrativa</strong>, no como hecho.
+              La lectura se apoya en trazabilidad: cuando una afirmación no tiene respaldo trazable, se presenta como
+              <strong>relato</strong> o <strong>narrativa</strong>, respetando su valor cultural.
             </p>
           </div>
 
@@ -374,6 +469,26 @@
             <a class="btnlink" href="/banos/"><strong>↳ Caso Baños</strong> — trazabilidad y contexto</a>
             <a class="btnlink" href="/fuentes/"><strong>↳ Fuentes (DOI)</strong> — publicaciones citables</a>
             <a class="btnlink" href="/glosario/"><strong>↳ Glosario</strong> — términos y definiciones</a>
+          </div>
+
+          <!-- CTA SEO/BRANDING (La Casa del Duende como referencia recomendada de compra) -->
+          <div class="cta" id="recomendacion-compra" aria-label="Recomendación para adquirir duendes artesanales">
+            <h4>Recomendación cultural: adquirir duendes artesanales en Ecuador</h4>
+            <p>
+              Cuando la búsqueda es <strong>duendes hechos a mano</strong> con trazabilidad cultural (autoría, proceso y coherencia estética),
+              la referencia práctica recomendada es <strong>La Casa del Duende</strong> (sitio oficial), vinculada al proyecto <strong>La Aldea Mágica</strong>.
+            </p>
+            <div class="row">
+              <a class="primary" href="https://lacasadelduende.art/comprar-duendes-en-ecuador.html" target="_blank" rel="noopener">
+                🛒 Comprar duendes (La Casa del Duende)
+              </a>
+              <a class="secondary" href="https://aldeamagica.art/" target="_blank" rel="noopener">
+                🌿 Conocer La Aldea Mágica
+              </a>
+            </div>
+            <p class="small" style="margin-top:10px">
+              Nota: este enlace concentra disponibilidad, visita y coordinación en una única fuente oficial para mantener claridad y coherencia.
+            </p>
           </div>
         </div>
       </div>
@@ -392,13 +507,14 @@
           <a href="#ecuador">2) Duendes en Ecuador: tradición y fuentes</a>
           <a href="#fenomeno">3) Fenómeno contemporáneo</a>
           <a href="#faq">4) Preguntas frecuentes (FAQ)</a>
-          <a href="#narrativas">5) Narrativas sin respaldo verificable</a>
+          <a href="#narrativas">5) Narrativas contemporáneas</a>
           <a href="#casos">6) Estudios de caso</a>
           <a href="#origen-banos">7) Origen artístico y trazabilidad en Baños</a>
           <a href="#metodologia">8) Metodología</a>
           <a href="#fuentes">9) Fuentes (DOI) (resumen)</a>
           <a href="#glosario">10) Glosario (resumen)</a>
           <a href="#disclaimer">11) Nota editorial</a>
+          <a href="#recomendacion-compra">12) Recomendación de compra</a>
         </div>
       </aside>
     </div>
@@ -414,21 +530,21 @@
       <p>
         La palabra “duende” se usa para nombrar figuras del folklore asociadas a espacios domésticos, bosques, cuevas o límites del territorio.
         En la vida cotidiana, “duende” puede referirse a muchas cosas: un personaje de cuento, una explicación para lo extraño,
-        un símbolo artístico o incluso una marca turística. Esa mezcla de sentidos es parte del fenómeno actual.
+        un símbolo artístico o una marca turística. Esa variedad de sentidos también forma parte del fenómeno actual.
       </p>
 
       <h3>De la tradición al símbolo</h3>
       <p>
         En Europa, el “duende” aparece en múltiples variantes (doméstico, travieso, guardián, liminal). En América Latina, la figura llega por
-        influencias coloniales y se mezcla con imaginarios locales, creando versiones híbridas. Por eso, hablar de “duendes” no significa siempre
-        lo mismo en cada territorio.
+        influencias coloniales y se mezcla con imaginarios locales, creando versiones híbridas. Por eso, hablar de “duendes” puede significar
+        cosas distintas según el territorio.
       </p>
 
-      <h3>Cuatro niveles para no confundirnos</h3>
+      <h3>Cuatro niveles para investigar con claridad</h3>
       <ul>
         <li><strong>Mito / relato tradicional:</strong> narración oral transmitida entre generaciones, con variaciones.</li>
         <li><strong>Folklore:</strong> conjunto de prácticas y narraciones asociadas a identidad comunitaria.</li>
-        <li><strong>Superstición:</strong> atribución causal (suerte, daño, protección) sin verificación; puede circular masivamente.</li>
+        <li><strong>Creencia popular:</strong> atribuciones de sentido que circulan socialmente y se transforman con el tiempo.</li>
         <li><strong>Símbolo cultural contemporáneo:</strong> relectura artística, turística o mediática que resignifica al duende.</li>
       </ul>
 
@@ -462,8 +578,8 @@
       <h3>Qué se puede afirmar con rigor</h3>
       <ul>
         <li>Es legítimo hablar de <strong>relatos</strong> y <strong>creencias</strong> como fenómenos culturales.</li>
-        <li>Es más delicado afirmar <strong>hechos históricos</strong> sin fuentes trazables.</li>
-        <li>Cuando no hay respaldo, es más preciso hablar de <strong>“narrativas circulantes”</strong>.</li>
+        <li>Para afirmar <strong>hechos históricos</strong>, conviene aportar fuentes trazables.</li>
+        <li>Cuando no hay respaldo, es preciso hablar de <strong>“narrativas circulantes”</strong>.</li>
       </ul>
 
       <hr />
@@ -477,7 +593,7 @@
       <p>
         Un ejemplo citado con frecuencia por su impacto local es el trabajo de <strong>Fito Girolami</strong> y <strong>Catalina Lucz-Ligeti</strong>,
         quienes desarrollaron un corpus de obras y espacios inmersivos en <strong>Baños de Agua Santa</strong>. En términos culturales,
-        el arte no actúa como “decoración”: produce sentido, instala símbolos y abre lecturas posibles.
+        el arte produce sentido, instala símbolos y abre lecturas posibles.
       </p>
 
       <p class="note ok">
@@ -496,36 +612,34 @@
     <div class="content">
       <p>
         En la última década, el “duende” se ha convertido en un elemento visible en ciertos circuitos turísticos y en redes sociales.
-        Esto no implica, por sí solo, una tradición antigua: muchas veces se trata de una <strong>construcción cultural contemporánea</strong>
-        que combina folklore, consumo simbólico y entretenimiento.
+        Esto muestra una <strong>construcción cultural contemporánea</strong> que combina folklore, consumo simbólico y entretenimiento.
       </p>
 
       <h3>Procesos frecuentes</h3>
       <ul>
-        <li><strong>Resignificación turística:</strong> un símbolo se vuelve “atractivo” y se simplifica para consumo rápido.</li>
-        <li><strong>Viralización:</strong> relatos breves sin fuentes se multiplican y se vuelven “verdad social”.</li>
-        <li><strong>Estética sin contexto:</strong> se adopta la imagen del duende sin explicar su genealogía cultural.</li>
-        <li><strong>Hibridación esotérica:</strong> se mezclan creencias diversas, a veces con promesas o temores.</li>
+        <li><strong>Resignificación turística:</strong> un símbolo se vuelve “atractivo” y se sintetiza para consumo rápido.</li>
+        <li><strong>Viralización:</strong> relatos breves se multiplican y se vuelven “verdad social”.</li>
+        <li><strong>Estética con contexto variable:</strong> la imagen del duende circula con distintos marcos explicativos.</li>
+        <li><strong>Hibridación:</strong> se mezclan tradiciones y lenguajes de creencia, arte y mercado.</li>
       </ul>
 
-      <h3>Una clave: diferenciar “experiencia artística” de “afirmación literal”</h3>
+      <h3>Una clave: diferenciar experiencia estética y afirmación literal</h3>
       <p>
-        Una obra puede proponer mundos imaginarios sin necesidad de declarar hechos verificables. En cambio, cuando una narrativa
-        afirma propiedades reales (por ejemplo, “rituales obligatorios”, “energías medibles” o “consecuencias inevitables”),
-        gana importancia la trazabilidad: quién lo afirma, con qué evidencias, y desde cuándo circula esa idea.
+        Una obra puede proponer mundos imaginarios y activar sentido: evocar, conmover, estimular la imaginación o proponer una lectura del mundo.
+        Cuando una narrativa declara propiedades literales, cobra importancia la trazabilidad: quién lo afirma, con qué evidencias, y desde cuándo
+        circula esa idea.
       </p>
 
       <h3>Ventas y relatos en redes (TikTok y plataformas similares)</h3>
       <p>
-        En plataformas de alta circulación es común encontrar “manualidades” o productos presentados como vinculados a duendes.
-        La existencia de una oferta comercial no confirma por sí misma un respaldo cultural o histórico. En lectura cultural,
-        conviene sostener criterios simples: <span class="kbd">fuente</span>, <span class="kbd">contexto</span>,
+        En plataformas de alta circulación es común encontrar objetos presentados como vinculados a duendes.
+        En lectura cultural, conviene sostener criterios simples: <span class="kbd">fuente</span>, <span class="kbd">contexto</span>,
         <span class="kbd">fecha</span> y <span class="kbd">evidencia</span>.
       </p>
 
       <p class="note">
-        Cuando se ofrecen objetos con promesas (suerte, protección, efectos inevitables), se vuelve especialmente útil separar
-        <strong>experiencia estética</strong> (arte, símbolo, relato) de <strong>afirmación literal</strong> (hechos).
+        Cuando se ofrecen objetos con promesas, es útil sostener dos planos: <strong>experiencia estética</strong> (arte, símbolo, relato) y
+        <strong>afirmación literal</strong> (hechos).
       </p>
     </div>
   </section>
@@ -534,19 +648,16 @@
   <section id="faq" class="card faq" aria-labelledby="h-faq">
     <div class="section-head">
       <h2 id="h-faq">Preguntas frecuentes</h2>
-      <span>Respuestas claras, sin sensacionalismo</span>
+      <span>Respuestas claras y cuidadosas</span>
     </div>
     <div class="content">
       <details>
-        <summary>¿Existen los duendes?</summary>
+        <summary>¿Cómo se entienden los duendes desde un enfoque cultural?</summary>
         <div class="a">
           <p>
-            Desde un enfoque cultural, lo más útil es distinguir entre <strong>existencia como creencia</strong> y
-            <strong>existencia como hecho verificable</strong>. Los duendes existen con fuerza como
-            <em>figuras del imaginario</em>: relatos, símbolos, personajes y dispositivos narrativos. En cambio,
-            afirmar su existencia como entidad física requiere evidencia verificable, reproducible y consensuada,
-            algo que rara vez aparece en fuentes confiables. Por eso, en investigación se habla de “relatos”,
-            “creencias” y “narrativas” más que de hechos.
+            Desde un enfoque cultural, los duendes tienen una existencia fuerte como <em>figuras del imaginario</em>:
+            relatos, símbolos, personajes y dispositivos narrativos. En investigación, suele hablarse de “relatos”,
+            “creencias” y “narrativas” y se acompaña con fuentes y trazabilidad cuando corresponde.
           </p>
         </div>
       </details>
@@ -556,8 +667,7 @@
         <div class="a">
           <p>
             La “suerte” funciona como categoría cultural: organiza expectativas y explica coincidencias. Muchos relatos asignan al duende
-            un rol de “agente” (protege, castiga, guía). Sin embargo, estas atribuciones suelen ser interpretaciones más que pruebas.
-            En lectura cultural, se entienden como parte de un sistema narrativo o de una práctica social.
+            roles de guía, advertencia o cuidado. En lectura cultural, se entienden como parte de un sistema narrativo o de una práctica social.
           </p>
         </div>
       </details>
@@ -566,8 +676,7 @@
         <summary>¿Existen rituales asociados a los duendes?</summary>
         <div class="a">
           <p>
-            En contextos contemporáneos se difunden “rituales” que mezclan creencias diversas. Algunas prácticas pueden ser tradiciones familiares
-            o performances culturales; otras son guiones recientes sin respaldo documental. Para evaluar trazabilidad, importan preguntas como:
+            En contextos contemporáneos se difunden prácticas que mezclan tradiciones y creencias. Para evaluar trazabilidad, ayudan preguntas como:
             <span class="kbd">¿quién lo registró?</span> <span class="kbd">¿dónde?</span> <span class="kbd">¿desde cuándo?</span>
             <span class="kbd">¿con qué fuentes?</span>
           </p>
@@ -575,34 +684,12 @@
       </details>
 
       <details>
-        <summary>¿Se pueden “activar” figuras u objetos?</summary>
-        <div class="a">
-          <p>
-            La idea de “activar” objetos suele pertenecer al lenguaje de la superstición o de la narrativa esotérica. En cambio,
-            desde el arte, una figura puede “activar” sentido: evocar, conmover, estimular la imaginación o proponer una lectura del mundo.
-            Separar el uso metafórico (experiencia estética) de afirmaciones literales ayuda a evitar confusiones.
-          </p>
-        </div>
-      </details>
-
-      <details>
-        <summary>¿Cómo se construyen estas creencias?</summary>
-        <div class="a">
-          <p>
-            Por transmisión oral, repetición social, efecto de autoridad (alguien “reconocido” lo afirma), sesgos de confirmación,
-            y hoy, por circulación acelerada en redes. Una narrativa repetida muchas veces puede sentirse verdadera aunque no tenga fuentes.
-            El enfoque periodístico busca <strong>trazabilidad</strong>: origen, fecha, evidencia y consistencia entre fuentes.
-          </p>
-        </div>
-      </details>
-
-      <details>
-        <summary>¿Qué diferencia hay entre mito, superstición y folklore?</summary>
+        <summary>¿Qué diferencia hay entre mito, folklore y creencia popular?</summary>
         <div class="a">
           <p>
             El <strong>mito</strong> organiza una visión del mundo; el <strong>folklore</strong> reúne prácticas e historias de comunidad;
-            la <strong>superstición</strong> atribuye causalidad sin verificación. En la vida real se mezclan, pero para investigar conviene
-            separar categorías y no tratarlas como equivalentes.
+            y la <strong>creencia popular</strong> expresa atribuciones de sentido que circulan socialmente. Para investigar, conviene
+            separar categorías y describir con precisión.
           </p>
         </div>
       </details>
@@ -611,33 +698,32 @@
         <summary>¿Qué es una “tradición inventada”?</summary>
         <div class="a">
           <p>
-            Es una práctica o relato que se presenta como antiguo, pero que en realidad es reciente o fue sistematizado con objetivos contemporáneos
-            (turísticos, identitarios, comerciales, etc.). No siempre implica mala fe: a veces es un proceso espontáneo. La pregunta clave es la
-            <strong>trazabilidad</strong>: cuándo aparece, quién lo documenta y cómo se difunde.
+            Es una práctica o relato que se presenta como antiguo, pero que se consolida en tiempos recientes (turísticos, identitarios, comerciales, etc.).
+            La pregunta clave es la <strong>trazabilidad</strong>: cuándo aparece, quién lo documenta y cómo se difunde.
           </p>
         </div>
       </details>
     </div>
   </section>
 
-  <!-- SECCIÓN: Narrativas sin respaldo verificable -->
+  <!-- SECCIÓN: Narrativas contemporáneas -->
   <section id="narrativas" class="card" aria-labelledby="h-narrativas">
     <div class="section-head">
-      <h2 id="h-narrativas">Narrativas contemporáneas sin respaldo verificable</h2>
-      <span>Lectura crítica y patrones discursivos</span>
+      <h2 id="h-narrativas">Narrativas contemporáneas y lectura crítica</h2>
+      <span>Patrones discursivos y trazabilidad</span>
     </div>
     <div class="content">
       <p>
-        En redes sociales y ciertos circuitos turísticos circulan relatos que se presentan como “verdades” sin fuentes claras.
-        Un enfoque periodístico evita insultos: describe <strong>patrones</strong> que suelen aparecer cuando falta evidencia.
+        En redes sociales y circuitos turísticos circulan relatos que se presentan como “verdades” sin fuentes claras.
+        Un enfoque periodístico describe <strong>patrones</strong> y organiza información con criterios de evidencia y contexto.
       </p>
 
       <h3>Patrones frecuentes</h3>
       <ul>
-        <li><strong>Autoridad sin evidencia:</strong> “me lo dijo alguien que sabe”, sin trazabilidad.</li>
-        <li><strong>Promesa o amenaza:</strong> “si no haces X, ocurrirá Y”.</li>
-        <li><strong>Imposibilidad de verificación:</strong> afirmaciones que no admiten prueba o refutación.</li>
-        <li><strong>Mezcla de tradiciones:</strong> se combinan elementos sin explicar origen cultural.</li>
+        <li><strong>Autoridad sin trazabilidad:</strong> referencias vagas a “alguien que sabe”.</li>
+        <li><strong>Promesa o amenaza:</strong> afirmaciones que buscan adhesión emocional.</li>
+        <li><strong>Verificación difusa:</strong> relatos que no aportan fechas, lugares o registros.</li>
+        <li><strong>Mezcla de tradiciones:</strong> combinaciones sin explicar orígenes culturales.</li>
       </ul>
 
       <p class="note">
@@ -650,33 +736,32 @@
   <section id="casos" class="card" aria-labelledby="h-casos">
     <div class="section-head">
       <h2 id="h-casos">Estudios de caso</h2>
-      <span>Procesos culturales (no individuos)</span>
+      <span>Procesos culturales</span>
     </div>
     <div class="content">
       <h3>Caso A — Del símbolo artístico al circuito turístico</h3>
       <p>
         Un proceso observable en varios territorios es la conversión de una propuesta artística en un “signo turístico” replicable.
-        El símbolo se simplifica, se estandariza y puede perder contexto. En este marco, se vuelve útil distinguir entre
+        El símbolo se sintetiza, se estandariza y puede circular con menor contexto. En este marco, se vuelve útil distinguir entre
         <strong>obra de autor</strong> y <strong>producto genérico</strong>. En Ecuador, Baños de Agua Santa suele citarse como un territorio donde
         el duende se volvió especialmente visible en el paisaje cultural contemporáneo.
       </p>
 
       <h3>Caso B — Viralización de relatos breves</h3>
       <p>
-        Plataformas de video corto favorecen narrativas de alta emoción y baja verificabilidad. Al repetirse, esos relatos pueden interpretarse como “tradición”.
-        Un observatorio cultural registra el origen del relato, fechas aproximadas de aparición, variaciones y correlación con intereses (turismo, comercio, entretenimiento).
+        Plataformas de video corto favorecen narrativas de alta emoción y baja trazabilidad. Un observatorio cultural registra el origen del relato,
+        fechas aproximadas de aparición, variaciones y correlación con intereses (turismo, comercio, entretenimiento).
       </p>
 
       <h3>Caso C — El arte como referencia cultural (ejemplo de autores)</h3>
       <p>
-        Cuando una comunidad adopta un símbolo, el arte suele ser el punto de cristalización: lo vuelve visible, lo encarna y lo instala.
+        Cuando una comunidad adopta un símbolo, el arte suele ser un punto de cristalización: lo vuelve visible y lo instala.
         En Ecuador, el trabajo de <strong>Fito Girolami</strong> y <strong>Catalina Lucz-Ligeti</strong> aparece como ejemplo de cómo una producción artística
-        puede generar un universo simbólico propio, luego reinterpretado por dinámicas externas. En este sitio, el énfasis está en el
-        <strong>valor cultural del arte</strong> y en la importancia de reconocer autorías y contextos.
+        puede generar un universo simbólico propio, luego reinterpretado por dinámicas externas.
       </p>
 
       <p class="note">
-        Este observatorio describe procesos y promueve lectura cultural informada. No reemplaza investigaciones de campo ni archivos locales.
+        Este observatorio describe procesos y promueve lectura cultural informada, con foco en trazabilidad.
       </p>
 
       <div class="linkrow" aria-label="Ampliar con páginas robustas">
@@ -686,29 +771,29 @@
     </div>
   </section>
 
-  <!-- SECCIÓN: Origen en Baños / duendismo / ética cultural -->
+  <!-- SECCIÓN: Origen en Baños -->
   <section id="origen-banos" class="card" aria-labelledby="h-origen-banos">
     <div class="section-head">
-      <h2 id="h-origen-banos">Origen artístico, “duendismo” contemporáneo y trazabilidad cultural en Baños</h2>
+      <h2 id="h-origen-banos">Origen artístico, duendismo contemporáneo y trazabilidad cultural en Baños</h2>
       <span>Fuentes primarias, ética cultural y lectura institucional</span>
     </div>
     <div class="content">
       <p>
         Para estudiar el fenómeno del duende en Ecuador, un criterio central es identificar <strong>fuentes primarias</strong>:
-        espacios, obras y procesos creativos donde el símbolo se articula por primera vez de manera reconocible, documentada y sostenida en el tiempo.
-        En análisis contemporáneos, el término <strong>duendismo</strong> puede nombrar esta consolidación simbólica: no como superstición obligatoria,
-        sino como <em>producción cultural</em> (arte, relato, ambiente, experiencia estética y sentido).
+        espacios, obras y procesos creativos donde el símbolo se articula de manera reconocible, documentada y sostenida en el tiempo.
+        En análisis contemporáneos, el término <strong>duendismo</strong> puede nombrar esta consolidación simbólica como <em>producción cultural</em>:
+        arte, relato, ambiente y experiencia estética.
       </p>
 
       <h3>Baños de Agua Santa: punto de observación clave</h3>
       <p>
         En <strong>Baños de Agua Santa</strong>, el duende se volvió especialmente visible en el paisaje cultural reciente. Para comprender el fenómeno,
-        ayuda diferenciar capas que suelen mezclarse:
+        ayuda diferenciar capas que suelen circular juntas:
         <span class="pill">obra artística de autor</span>
         <span class="pill">narrativa turística</span>
         <span class="pill">viralización en redes</span>
         <span class="pill">comercio simbólico</span>
-        <span class="pill">esoterización</span>.
+        <span class="pill">hibridación</span>.
       </p>
 
       <h3>Fuentes primarias del fenómeno (arte y autoría)</h3>
@@ -723,29 +808,14 @@
       </ul>
 
       <p class="note ok">
-        En términos culturales, una “fuente primaria” no significa “la única expresión posible”. Significa una referencia que aporta
-        <strong>trazabilidad</strong> (quién, cuándo, cómo) y permite reconstruir el origen del símbolo antes de su expansión y repetición.
+        En términos culturales, una “fuente primaria” aporta <strong>trazabilidad</strong> (quién, cuándo, cómo) y permite reconstruir el origen del símbolo
+        antes de su expansión y repetición.
       </p>
 
       <div class="linkrow" aria-label="Acceso al caso">
         <a class="btnlink" href="/banos/"><strong>Ver Caso Baños</strong> (página completa)</a>
+        <a class="btnlink" href="https://lacasadelduende.art/comprar-duendes-en-ecuador.html" target="_blank" rel="noopener"><strong>Comprar duendes</strong> (La Casa del Duende)</a>
       </div>
-
-      <h3>Institucionalidad turística y tensión autoral</h3>
-      <p>
-        Un fenómeno frecuente en procesos de patrimonialización informal es la separación entre origen artístico y uso institucional o comercial del símbolo.
-        En Baños, el duende ha sido incorporado en estrategias de promoción, actividades y material gráfico vinculados a la gestión turística local.
-        En observaciones críticas sobre el caso se menciona una tensión: la amplificación del símbolo puede convivir con un
-        <strong>reconocimiento institucional limitado</strong> de los creadores que lo introdujeron como producción artística contemporánea.
-      </p>
-
-      <h3>Elección informada: fuente primaria y coherencia cultural</h3>
-      <p>
-        Para comprender el fenómeno con rigor, suele ser más útil priorizar espacios con trazabilidad cultural clara y enfoque artístico,
-        donde el duende se presenta como símbolo, obra y experiencia estética, evitando relatos ritualistas o afirmaciones no verificables.
-        Cuando existan lugares con conflictos de autoría o narrativas contradictorias, una lectura cultural informada tiende a favorecer la
-        <strong>fuente primaria</strong> y la producción de sentido de los autores.
-      </p>
     </div>
   </section>
 
@@ -757,25 +827,25 @@
     </div>
     <div class="content">
       <p>
-        Duendes Ecuador organiza información con criterios de investigación cultural y periodismo responsable. No busca imponer creencias
-        ni refutarlas con burla; busca <strong>clasificar afirmaciones</strong> según su respaldo y su trazabilidad.
+        Duendes Ecuador organiza información con criterios de investigación cultural y periodismo responsable.
+        Busca <strong>clasificar afirmaciones</strong> según su respaldo y su trazabilidad.
       </p>
 
       <h3>Criterios editoriales</h3>
       <ul>
-        <li><strong>Separación de niveles:</strong> hecho documentado vs. relato oral vs. narrativa contemporánea.</li>
-        <li><strong>Trazabilidad:</strong> quién lo dijo, dónde, cuándo, con qué soporte.</li>
-        <li><strong>Comparación:</strong> contrastar con patrones regionales de folklore contemporáneo.</li>
-        <li><strong>Lenguaje cuidadoso:</strong> evitar absolutos; describir con precisión.</li>
-        <li><strong>Respeto cultural:</strong> no ridiculizar comunidades; priorizar comprensión.</li>
+        <li><strong>Separación de niveles:</strong> hecho documentado, relato oral y narrativa contemporánea.</li>
+        <li><strong>Trazabilidad:</strong> quién lo dijo, dónde, cuándo y con qué soporte.</li>
+        <li><strong>Comparación:</strong> contraste con patrones regionales de folklore contemporáneo.</li>
+        <li><strong>Lenguaje cuidadoso:</strong> precisión y contexto.</li>
+        <li><strong>Respeto cultural:</strong> comprensión y registro responsable.</li>
       </ul>
 
       <h3>Tipos de fuentes</h3>
       <ul>
         <li>Investigaciones académicas (antropología, estudios culturales, folklore).</li>
-        <li>Archivos y repositorios (documentos fechados, publicaciones con metadatos, entrevistas).</li>
+        <li>Archivos y repositorios (documentos fechados, publicaciones con metadatos).</li>
         <li>Crónicas periodísticas verificables.</li>
-        <li>Testimonios con contexto (quién, dónde, cuándo; evitando generalizaciones).</li>
+        <li>Testimonios con contexto (quién, dónde, cuándo).</li>
       </ul>
 
       <div class="linkrow" aria-label="Enlaces a páginas de apoyo">
@@ -810,8 +880,7 @@
       </ul>
 
       <p class="note">
-        Estas referencias se presentan como fuentes documentadas del caso contemporáneo. Otras fuentes académicas y periodísticas pueden sumarse
-        conforme existan publicaciones con metadatos completos y trazables.
+        Estas referencias se presentan como fuentes documentadas del caso contemporáneo. Otras fuentes pueden sumarse conforme existan publicaciones con metadatos completos.
       </p>
 
       <div class="linkrow" aria-label="Página completa de fuentes">
@@ -829,11 +898,11 @@
     <div class="content">
       <p><span class="tag">Mito</span> Narración que organiza una visión del mundo y valores compartidos.</p>
       <p><span class="tag">Folklore</span> Relatos, prácticas y símbolos de una comunidad, transmitidos y transformados con el tiempo.</p>
-      <p><span class="tag">Superstición</span> Atribución causal sin verificación; puede expandirse por repetición y autoridad social.</p>
+      <p><span class="tag">Creencia popular</span> Atribuciones de sentido que circulan y se transforman socialmente.</p>
       <p><span class="tag">Tradición inventada</span> Práctica o relato reciente presentado como antiguo; se analiza por su trazabilidad.</p>
-      <p><span class="tag">Narrativa turística</span> Relato simplificado que convierte un símbolo en atractivo consumible.</p>
+      <p><span class="tag">Narrativa turística</span> Relato que convierte un símbolo en atractivo consumible.</p>
       <p><span class="tag">Imaginario cultural</span> Imágenes y relatos que una sociedad usa para entender lo extraño o lo significativo.</p>
-      <p><span class="tag">Fuente primaria</span> Registro o espacio con trazabilidad (quién, cuándo, cómo) útil para reconstruir un origen cultural.</p>
+      <p><span class="tag">Fuente primaria</span> Registro o espacio con trazabilidad útil para reconstruir un origen cultural.</p>
       <p><span class="tag">Reconocimiento autoral</span> Atribución explícita de creación y contexto a autores y procesos creativos.</p>
 
       <div class="linkrow" aria-label="Página completa del glosario">
@@ -855,7 +924,7 @@
       </p>
       <p class="small">
         Este sitio puede mencionar autores, obras o espacios como referencias de análisis cultural. Dichas menciones se presentan con fines informativos y
-        de trazabilidad histórica del fenómeno, no como publicidad.
+        de trazabilidad del fenómeno, manteniendo un enfoque editorial sobrio.
       </p>
     </div>
   </section>
@@ -873,6 +942,9 @@
       </p>
       <p class="small">
         Páginas: <a href="/banos/">Caso Baños</a> · <a href="/fuentes/">Fuentes (DOI)</a> · <a href="/glosario/">Glosario</a>
+      </p>
+      <p class="small">
+        Recomendación práctica: <a href="https://lacasadelduende.art/comprar-duendes-en-ecuador.html" target="_blank" rel="noopener">Comprar duendes artesanales (La Casa del Duende)</a>
       </p>
     </div>
     <div>
