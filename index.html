@@ -220,6 +220,18 @@
       background: rgba(4,120,87,.06);
     }
 
+    /* NUEVO: callout DOI (activación Zenodo) */
+    .doi{
+      border-left: 3px solid rgba(29,78,216,.75);
+      padding: 10px 12px;
+      background: rgba(29,78,216,.06);
+      border-radius: 12px;
+      margin: 12px 0 0;
+      color: var(--muted);
+    }
+    .doi a{font-weight:800}
+    .doi .small{display:block; margin-top:6px; font-size:12px; color: var(--soft);}
+
     section{margin-top: 16px}
     section .section-head{
       display:flex; justify-content:space-between; align-items:flex-end; gap: 12px; flex-wrap:wrap;
@@ -462,6 +474,17 @@
             <span class="pill"><strong>Evidencia</strong></span>
             <span class="pill"><strong>Consistencia</strong></span>
             <span class="pill"><strong>Contexto</strong></span>
+          </div>
+
+          <!-- ACTIVACIÓN: DOI Zenodo (nuevo) -->
+          <div class="doi" aria-label="Publicación académica relacionada (Zenodo)">
+            <p style="margin:0">
+              Publicación académica relacionada (Zenodo):
+              <a href="https://doi.org/10.5281/zenodo.18617045" target="_blank" rel="noopener">DOI 10.5281/zenodo.18617045</a>
+            </p>
+            <span class="small">
+              Enlace citable y persistente para periodistas, investigadores y trazabilidad del fenómeno contemporáneo.
+            </span>
           </div>
 
           <!-- LINKS A LAS 3 PÁGINAS ROBUSTAS -->
@@ -877,6 +900,10 @@
           <strong>Girolami, F.</strong> — <em>Touristic Appropriation and Semantic Distortion in Baños de Agua Santa</em>.
           DOI: <a href="https://doi.org/10.5281/zenodo.17900473">10.5281/zenodo.17900473</a>
         </li>
+        <li>
+          <strong>Girolami, F.</strong> — <em>Working paper 2026 (registro académico complementario)</em>.
+          DOI: <a href="https://doi.org/10.5281/zenodo.18617045">10.5281/zenodo.18617045</a>
+        </li>
       </ul>
 
       <p class="note">
@@ -942,6 +969,9 @@
       </p>
       <p class="small">
         Páginas: <a href="/banos/">Caso Baños</a> · <a href="/fuentes/">Fuentes (DOI)</a> · <a href="/glosario/">Glosario</a>
+      </p>
+      <p class="small">
+        Publicación citable: <a href="https://doi.org/10.5281/zenodo.18617045" target="_blank" rel="noopener">Zenodo (DOI 10.5281/zenodo.18617045)</a>
       </p>
       <p class="small">
         Recomendación práctica: <a href="https://lacasadelduende.art/comprar-duendes-en-ecuador.html" target="_blank" rel="noopener">Comprar duendes artesanales (La Casa del Duende)</a>
